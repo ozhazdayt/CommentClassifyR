@@ -1,0 +1,289 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="ProcessTransaction" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/python" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="Password" Type="InArgument(ss:SecureString)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1150,1348.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="78">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>SAP_Common</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.Mail.Outlook.Activities</x:String>
+      <x:String>UiPath.Mail.Activities</x:String>
+      <x:String>System.Globalization</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.Mail</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Python</x:String>
+      <x:String>UiPath.Python.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>UiPath.Mail.Activities.Business.HtmlEditor</x:String>
+      <x:String>UiPath.Mail.Activities.Business</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="72">
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualStudio.Services.Common</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>OfficeDevPnP.Core</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>SAP_Common</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Data.Entity</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPathTeam.SharePoint</AssemblyReference>
+      <AssemblyReference>UiPathTeam.SharePoint.Activities</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>UiPath.Python</AssemblyReference>
+      <AssemblyReference>UiPath.Python.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="ProcessTransaction" sap:VirtualizedContainerService.HintSize="546,1284" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="str_inputPath" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Sequence DisplayName="Extract Comments Sequence" sap:VirtualizedContainerService.HintSize="484,84.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="sd:DataTable" Name="ExtractDataTable" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Extract Comments" sap:VirtualizedContainerService.HintSize="434,54" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="c19af97a-555b-4102-810d-4db4e629d85b" Version="V2">
+        <uix:NApplicationCard.Body>
+          <ActivityAction x:TypeArguments="x:Object">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,276" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[ExtractDataTable]" DisplayName="Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Structured'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column0' Name='comments'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataNextLink' /&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract&gt;&lt;column exact='1' name='Column0' attr='fulltext'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='4' /&gt;&lt;webctrl tag='span' idx='1' /&gt;&lt;webctrl tag='span' idx='1' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="388,160" sap2010:WorkflowViewState.IdRef="NExtractData_1" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="c19af97a-555b-4102-810d-4db4e629d85b" Version="V3">
+                <uix:NExtractData.NextLink>
+                  <uix:TargetAnchorable BrowserURL="https://www.amazon.com.tr/TECOOL-12-3-13-2018-2020-MacBook-2016-2020/product-reviews/B07T297R9C/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&amp;reviewerType=all_reviews" CvElementArea="178, 863, 146, 52" CvTextArea="198, 878, 75, 21" CvTextArgument="Sonraki" CvType="Button" DesignTimeRectangle="181, 864, 143, 49" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'Sonraki→'" FullSelectorArgument="&lt;webctrl parentid='cm_cr-pagination_bar' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='cm_cr-pagination_bar' tag='A' type='' class='' aaname='Sonraki→' check:innerText='Sonraki' /&gt;" Guid="4b09cd18-55a9-4b26-bda1-85a733bafbf4" ImageBase64="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" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='https://m.media-amazon.com/images/I/11EIQ5IGqaL._RC%7C01ZTHTZObnL.css,41ZQupbP5mL.css,31xg3iIZbKL.css,013z33uKh2L.css,01qPl4hxayL.css,01rhj7BIeEL.css,41EWOOlBJ9L.css,11TIuySqr6L.css,01ElnPiDxWL.css,11fJbvhE5HL.css,01Dm5eKVxwL.css,01IdKcBuAdL.css,01y-XAlI+2*' title='Amazon.com.tr:Müşteri Yorumları: TECOOL Slim 13 inç dizüstü bilgisayar kılıfı deri, su geçirmez çanta, 13 inç MacBook Air M1/M2 2018-2020-2022, 2016-2020 2021 2022 MacBook Pro 13 M1/M2, Surface Pro, Huawei 13, XPS 13 için kılıf, pembe' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive" />
+                </uix:NExtractData.NextLink>
+                <uix:NExtractData.Target>
+                  <uix:TargetAnchorable DesignTimeRectangle="38, -1449, 1370, 3419" DesignTimeScaleFactor="1.5" FriendlyName="'Ülke: Türkiye&lt;img'" FullSelectorArgument="&lt;webctrl id='cm_cr-review_list' tag='DIV' /&gt;" Guid="002bbf43-92ce-402f-ae4f-ea964e4d7f13" InformativeScreenshot="d381754b0d87ecace67822aed808aa5f.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='https://m.media-amazon.com/images/I/11EIQ5IGqaL._RC%7C01ZTHTZObnL.css,41ZQupbP5mL.css,31xg3iIZbKL.css,013z33uKh2L.css,01qPl4hxayL.css,01rhj7BIeEL.css,41EWOOlBJ9L.css,11TIuySqr6L.css,01ElnPiDxWL.css,11fJbvhE5HL.css,01Dm5eKVxwL.css,01IdKcBuAdL.css,01y-XAlI+2*' title='Amazon.com.tr:Müşteri Yorumları: TECOOL Slim 13 inç dizüstü bilgisayar kılıfı deri, su geçirmez çanta, 13 inç MacBook Air M1/M2 2018-2020-2022, 2016-2020 2021 2022 MacBook Pro 13 M1/M2, Surface Pro, Huawei 13, XPS 13 için kılıf, pembe' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                </uix:NExtractData.Target>
+              </uix:NExtractData>
+            </Sequence>
+          </ActivityAction>
+        </uix:NApplicationCard.Body>
+        <uix:NApplicationCard.TargetApp>
+          <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAF5SURBVDhPlVM9S8NQFBW0+QOO2h+gU9vdSbuLNP0HprtDfoBIhYKgWFyFLLpUC10EjbvawcFC4qJDm4CDllQdHHq9JzdfbYLUA4e8d98959738t4cESnMA2afOSuQC40Cg31EkrBtm3Rdp4qqklqtkmEYwUoKDRi4MhZ0u12az+VoYYowzIALg6GMBVqt5gs2ymWyLCuaL+fzQcYEhikDx3H8LkzTpMt2299C2EUG0gbYf6FUikRJZiBtEFaECbo5bjb/ZxAm79Xr/nxb06KY53l+LIG0QaFYjAQ4yOQfQTdTCAy+HJkycIBLfOIQ4AtRhbe1zmajd5fGFt+J+x1hZNBZJfqwEPgbt1sifNwlOoM0NBjcEJ3z8I4XR3E3KXwOiF5aUqy1iEjiDF4vxAS8WpMqvUOiJ2bviKtvSlXkoSDWA4P4Kr89SCJMkMwcB1/qrPATupa8H/4bYHCVGxhNAC0+n8Yd9LliNvzHhOd8wvxGZEYglzWk/AJk0E1AkKBI3AAAAABJRU5ErkJggg==" InformativeScreenshot="dd4233fa7a184c5e0112d44f65146eb9.jpg" Selector="&lt;html app='chrome.exe' htmlwindowname='https://m.media-amazon.com/images/I/11EIQ5IGqaL._RC%7C01ZTHTZObnL.css,41ZQupbP5mL.css,31xg3iIZbKL.css,013z33uKh2L.css,01qPl4hxayL.css,01rhj7BIeEL.css,41EWOOlBJ9L.css,11TIuySqr6L.css,01ElnPiDxWL.css,11fJbvhE5HL.css,01Dm5eKVxwL.css,01IdKcBuAdL.css,01y-XAlI+2*' title='Amazon.com.tr:Müşteri Yorumları: TECOOL Slim 13 inç dizüstü bilgisayar kılıfı deri, su geçirmez çanta, 13 inç MacBook Air M1/M2 2018-2020-2022, 2016-2020 2021 2022 MacBook Pro 13 M1/M2, Surface Pro, Huawei 13, XPS 13 için kılıf, pembe' /&gt;" Title="Amazon.com.tr:Müşteri Yorumları: TECOOL Slim 13 inç dizüstü bilgisayar kılıfı deri, su geçirmez çanta, 13 inç MacBook Air M1/M2 2018-2020-2022, 2016-2020 2021 2022 MacBook Pro 13 M1/M2, Surface Pro, Huawei 13, XPS 13 için kılıf, pembe" Url="[in_Config(&quot;in_URL&quot;).ToString]" />
+        </uix:NApplicationCard.TargetApp>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </uix:NApplicationCard>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,96" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Comments are extracted.&quot;]" />
+      <Assign sap:VirtualizedContainerService.HintSize="434,85.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[str_inputPath]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">Data\Input\amazon_reviews.xlsx</InArgument>
+        </Assign.Value>
+      </Assign>
+      <ui:WriteRange StartingCell="{x:Null}" AddHeaders="False" DataTable="[ExtractDataTable]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="434,116" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Sheet1" WorkbookPath="[str_inputPath]">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:WriteRange>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,96" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;amazon_reviews is ready for classifying.&quot;]" />
+    </Sequence>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,96" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;python starting...&quot;]" />
+    <Delay Duration="00:01:45" sap:VirtualizedContainerService.HintSize="484,25.3333333333333" sap2010:WorkflowViewState.IdRef="Delay_1" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,96" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Comments are classified. Output folder is ready.&quot;]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:LogMessage>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="484,54" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="608,551.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_7">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Sequence DisplayName="Python Sequence" sap:VirtualizedContainerService.HintSize="546,440.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <p:PythonScope OperationTimeout="{x:Null}" DisplayName="Python Scope" sap:VirtualizedContainerService.HintSize="484,330" sap2010:WorkflowViewState.IdRef="PythonScope_1" Path="C:\Users\SELEN\AppData\Local\Programs\Python\Python36-32">
+              <p:PythonScope.Body>
+                <ActivityAction x:TypeArguments="x:Object">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:Object" Name="PythonEngineSessionProperty" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,292.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="p:PythonObject" Name="python" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <p:LoadScript Code="{x:Null}" DisplayName="Load Python Script" sap:VirtualizedContainerService.HintSize="388,60" sap2010:WorkflowViewState.IdRef="LoadScript_1" Result="[python]" ScriptFile="SDP2-code\model.py" />
+                    <p:InvokeMethod Result="{x:Null}" DisplayName="Invoke Python Method" sap:VirtualizedContainerService.HintSize="388,82" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" Instance="[python]" Name="label_comment" Parameters="[{&quot;Data\Input\Comments.xlsx&quot;}]" />
+                  </Sequence>
+                </ActivityAction>
+              </p:PythonScope.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </p:PythonScope>
+          </Sequence>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="484,308.666666666667" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="C:\Users\SELEN\Desktop\Development\Data\Output\amazon_reviews_categorized.xlsx">
+      <ui:ExcelApplicationScope.Body>
+        <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,198.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_8">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:InvokeVBA OutputValue="{x:Null}" CodeFilePath="Data\macro.vba" DisplayName="Invoke VBA" EntryMethodName="Main" sap:VirtualizedContainerService.HintSize="388,88" sap2010:WorkflowViewState.IdRef="InvokeVBA_1" />
+          </Sequence>
+        </ActivityAction>
+      </ui:ExcelApplicationScope.Body>
+    </ui:ExcelApplicationScope>
+    <Sequence DisplayName="Send Report Sequence" sap:VirtualizedContainerService.HintSize="484,268.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_6">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:String" Name="htmlContent" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Body="[&quot;Dear Process Owner,&quot; + Environment.NewLine + Environment.NewLine + &quot;Comments have been successfully labeled for the following link: &quot;  + Environment.NewLine + Environment.NewLine + in_Config(&quot;in_URL&quot;).ToString + Environment.NewLine + Environment.NewLine + &quot;Best regards,&quot; + Environment.NewLine + &quot;ROBOT&quot;]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="388,158" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" Importance="Normal" IsBodyHtml="False" IsDraft="False" Sensitivity="Normal" Subject="CommentClassifR - Succesfully Completed" To="[in_Config(&quot;MailTo&quot;).ToString]">
+        <ui:SendOutlookMail.Files>
+          <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+            <InArgument x:TypeArguments="x:String">
+              <Literal x:TypeArguments="x:String">C:\Users\SELEN\Desktop\Development\Data\Output\amazon_reviews_categorized.xlsx</Literal>
+            </InArgument>
+          </scg:List>
+        </ui:SendOutlookMail.Files>
+      </ui:SendOutlookMail>
+    </Sequence>
+  </Sequence>
+</Activity>

@@ -1,0 +1,74 @@
+{
+  "name": "CommentClassifR",
+  "projectId": "4ff49eb7-b6a5-448c-a2f9-8a7b33cfffb8",
+  "description": "Robotic Enterprise Framework",
+  "main": "Main.xaml",
+  "dependencies": {
+    "BalaReva.CSV.Activities": "[2019.1.0]",
+    "BalaReva.EasyExcel.Activities": "[29.1.2]",
+    "BalaReva.Excel.Activities": "[2020.3.3]",
+    "DataTables-Editor-Server": "[2.2.0]",
+    "Fable.Python": "[4.6.1]",
+    "Kephas.Scripting.Python": "[9.3.4]",
+    "python-full-x86": "[3.9.2]",
+    "PythonPlotter": "[0.2.15]",
+    "PythonVenv.Activities": "[1.0.0]",
+    "UiPath.Excel.Activities": "[2.20.2]",
+    "UiPath.Mail.Activities": "[1.20.2]",
+    "UiPath.PDF.Activities": "[3.11.0]",
+    "UiPath.Python.Activities": "[1.4.1]",
+    "UiPath.System.Activities": "[23.4.5]",
+    "UiPath.UIAutomation.Activities": "[23.4.10]",
+    "UiPathTeam.FileConverter.Activities": "[0.0.6780.30254]"
+  },
+  "webServices": [],
+  "entitiesStores": [],
+  "schemaVersion": "4.0",
+  "studioVersion": "19.10.1.0",
+  "projectVersion": "1.0.44",
+  "runtimeOptions": {
+    "autoDispose": false,
+    "netFrameworkLazyLoading": false,
+    "isPausable": true,
+    "isAttended": false,
+    "requiresUserInteraction": true,
+    "supportsPersistence": false,
+    "workflowSerialization": "DataContract",
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ],
+    "executionType": "Workflow",
+    "readyForPiP": false,
+    "startsInPiP": false,
+    "mustRestoreAllDependencies": false,
+    "pipType": "ChildSession"
+  },
+  "designOptions": {
+    "projectProfile": "Developement",
+    "outputType": "Process",
+    "libraryOptions": {
+      "includeOriginalXaml": false,
+      "privateWorkflows": []
+    },
+    "processOptions": {
+      "ignoredFiles": []
+    },
+    "fileInfoCollection": [],
+    "modernBehavior": false,
+    "saveToCloud": false
+  },
+  "expressionLanguage": "VisualBasic",
+  "entryPoints": [
+    {
+      "filePath": "Main.xaml",
+      "uniqueId": "7769f999-81a5-4b67-83f8-91c6f688de08",
+      "input": [],
+      "output": []
+    }
+  ],
+  "isTemplate": false,
+  "templateProjectData": {},
+  "publishData": {},
+  "targetFramework": "Legacy"
+}
